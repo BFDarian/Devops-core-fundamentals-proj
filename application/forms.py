@@ -17,6 +17,7 @@ class AddPlayer(FlaskForm):
         choices = [("QB","QB"), ("RB","RB"), ("OL","OL"), ("TE","TE"), ("WR","WR"), ("DL","DL"), ("LB","LB"), ("DB","DB"), ("K","K"), ("P","P")])
     height = IntegerField('Player Height(cm)')
     DoB = DateField('Date of Birth') 
+    team = SelectField('Team', choices=[])
     submit = SubmitField('Add Player')
 
 
