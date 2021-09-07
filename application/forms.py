@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, SubmitField, SelectField, DateField
 from wtforms.validators import DataRequired, ValidationError
 
+
 class AddTeam(FlaskForm):
     team_name = StringField('Team Name', validators = [DataRequired(message = "Field cannot be empty")])
     stadium_name = StringField('Stadium name')
@@ -16,12 +17,12 @@ class AddPlayer(FlaskForm):
     position = SelectField('Player Position', 
         choices = [("QB","QB"), ("RB","RB"), ("OL","OL"), ("TE","TE"), ("WR","WR"), ("DL","DL"), ("LB","LB"), ("DB","DB"), ("K","K"), ("P","P")])
     height = IntegerField('Player Height(cm)')
-    DoB = DateField('Date of Birth') 
+    DoB = DateField('Date of Birth')
     team = SelectField('Team', choices=[])
     submit = SubmitField('Add Player')
 
 
-class AddStats(FlaskForms):
+class AddStats(FlaskForm):
    games_played = IntegerField('Games Played', validators = [DataRequired(message = "Field cannot be empty")])
    receptions = IntegerField('Receptions', validators = [DataRequired(message = "Field cannot be empty")])
    touchdowns = IntegerField('Touchdowns', validators = [DataRequired(message = "Field cannot be empty")])

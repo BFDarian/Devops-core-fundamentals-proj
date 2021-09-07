@@ -1,0 +1,9 @@
+<html>
+    <body>
+        <h1>NFL app</h1>
+        <br>
+        <a href="{{ url_for('home') }}">Home</a> || <a href="{{ url_for('addTeam') }}">Add a Team</a> || <a href="{{ url_for('addPlayer') }}">Add a Player</a> || <a href="{{ url_for('teams') }}">Teams</a>
+        {% block body %}
+        {% endblock body %}
+    </body>
+</html>

@@ -1,0 +1,8 @@
+{% extends 'home.html' %}
+{% block body %}
+<h2>{{ name }}</h2>
+{% for player in nflPlayer %}
+<a>Player: {{ player.player_name }}</a> || <a>Position: {{ player.position }}</a>  || <a>height: {{ team.team_location }}</a> || <a>Date of Birth: {{ player.DoB }}</a> || <button onclick ="{{ url_for('updatePlayer', playerid = player.id) }}" >Update Player Information</button> || <button onclick ="{{ url_for('deletePlayer', playerid = player.id) }}" >Delete Player</button>         
+<br>
+{% endfor %}
+{% endblock body %}

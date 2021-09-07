@@ -1,0 +1,8 @@
+{% extends 'home.html' %}
+{% block body %}
+<h2>Teams</h2>
+{% for team in nflTeams %}
+<a href="{{ url_for('teamPlayer', teamid = team.id) }}">Team: {{ team.team_name }}</a> || <a>Stadium: {{ team.team_stadium }}</a>  || <a>Location: {{ team.team_location }}</a> || <a>Owner: {{ team.team_owner }}</a> || <a>Stadium Capacity: {{ team.capacity }}</a>
+<br>
+{% endfor %}
+{% endblock body %}

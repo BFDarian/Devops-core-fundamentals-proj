@@ -16,7 +16,7 @@ class Player(db.Model):
     height = db.Column(db.Integer)
     DoB = db.Column(db.DateTime)
     team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
-    stats = db,relationship('Stats', backref = 'player')
+    stats = db.relationship('Stats', backref = 'player')
 
 class Stats(db.Model):
     games_played = db.Column(db.Integer, nullable = False)
