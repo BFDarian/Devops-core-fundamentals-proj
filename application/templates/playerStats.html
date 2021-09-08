@@ -1,8 +1,18 @@
 {% extends 'home.html' %}
 {% block body %}
 <h2>{{ name }}</h2>
-{% for player in nflPlayer %}
-<a>Player: {{ player.player_name }}</a> || <a>Position: {{ player.position }}</a>  || <a>height: {{ team.team_location }}</a> || <a>Date of Birth: {{ player.DoB }}</a> || <button onclick ="{{ url_for('updatePlayer', playerid = player.id) }}" >Update Player Information</button> || <button onclick ="{{ url_for('deletePlayer', playerid = player.id) }}" >Delete Player</button>         
+<a>Games Played: {{ nflPlayerStat.games_played }}</a> 
+<a>Receptions: {{ nflPlayerStat.games_played }}</a> 
+<a>Touchdowns: {{ nflPlayerStat.games_played }}</a> 
+<a>Passing Yards: {{ nflPlayerStat.games_played }}</a> 
+<a>Completions: {{ nflPlayerStat.games_played }}</a> 
+<a>Rushing Yards: {{ nflPlayerStat.games_played }}</a> 
+<a>Interceptions(Offense): {{ nflPlayerStat.games_played }}</a> 
+<a>Interceptions(Defense): {{ nflPlayerStat.games_played }}</a>  
+<a>Sacks: {{ nflPlayerStat.games_played }}</a> 
+<a>Tackles: {{ nflPlayerStat.games_played }}</a> 
+<a>Safety: {{ nflPlayerStat.games_played }}</a> 
+<button onclick ="{{ url_for('updateStats', playerid = nflPlayerStat.player_id) }}" >Update Player Stats</button> || <button onclick ="{{ url_for('deleteStats', playerid = nflPlayerStat.player_id) }}" >Delete Player Stats</button>         
 <br>
-{% endfor %}
+
 {% endblock body %}
