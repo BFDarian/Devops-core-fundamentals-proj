@@ -33,12 +33,11 @@ def playerStats(playerid):
 def addTeam():
     form = AddTeam()
     if request.method =='POST':
-        name = form.team_name.data
-        stadium = form.stadium_name.data
-        loc = form.team_location.data
-        owner = form.team_owner.data
-        capacity = form.capacity.data
-        team = Team(team_name = name, team_stadium = stadium, team_location = loc, team_owner = owner, capacity= capacity)
+        team = Team(team_name = form.team_name.data, 
+                    team_stadium = form.stadium_name.data, 
+                    team_location = form.team_location.data, 
+                    team_owner = form.team_owner.data, 
+                    capacity= form.capacity.data)
         db.session.add(team)
         db.session.commit()
         return redirect(url_for('teams'))
@@ -52,12 +51,11 @@ def addPlayer():
     for team in teamSelect:
         form.team.choices.append((team.id,team.team_name))
     if request.method == 'POST':
-        name = form.player_name.data
-        position = form.position.data
-        height = form.height.data
-        dob = form.DoB.data
-        team = form.team.data
-        player = Player(player_name = name, position = position, height = height, DoB = dob, team_id = team)
+        player = Player(player_name = form.player_name.data, 
+                        position = form.position.data, 
+                        height = form.height.data, 
+                        DoB = form.DoB.data, 
+                        team_id = form.team.data)
         db.session.add(player)
         db.session.commit()
         return redirect(url_for('addStats', playerid = player.id ))
@@ -68,18 +66,18 @@ def addPlayer():
 def addStats(playerid):
     form = AddStats()
     if request.method =='POST':
-        games = form.games_played.data
-        rec = form.receptions.data
-        touchdowns = form.touchdowns.data
-        passY = form.pass_yards.data
-        comp = form.completions.data
-        rush = form.rush_yards.data
-        offInt = form.off_int.data
-        defInt = form.def_int.data
-        sacks = form.sacks.data
-        tackles = form.tackles.data
-        safety = form.safety.data
-        stat = Stats(games_played = games, receptions = rec, touchdowns = touchdowns, passing_yards = passY, completions = comp, rushing_yards = rush, offensive_int = offInt, defensive_int = defInt, sacks = sacks, tackles = tackles, safety = safety, player_id = playerid)
+        stat = Stats(games_played = form.games_played.data, 
+                    receptions = form.receptions.data, 
+                    touchdowns = form.touchdowns.data, 
+                    passing_yards = form.pass_yards.data, 
+                    completions = form.completions.data, 
+                    rushing_yards = form.rush_yards.data, 
+                    offensive_int = form.off_int.data,
+                    defensive_int = form.def_int.data, 
+                    sacks = form.sacks.data, 
+                    tackles = form.tackles.data, 
+                    safety = form.safety.data, 
+                    player_id = playerid)
         db.session.add(stat)
         db.session.commit()
         return redirect(url_for('teams'))
