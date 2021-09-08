@@ -1,0 +1,17 @@
+{% extends 'home.html' %}
+{% block body %}
+<h2>Add a New Team</h2>
+<br>
+<div class='form'>
+            <form method='POST' action=''>
+                {{ form.hidden_tag() }}
+                {{ form.team_name.label }} {{ form.team_name }}
+                {{ form.stadium_name.label }} {{ form.stadium_name }}
+                {{ form.team_location.label }} {{ form.team_location }}
+                {{ form.team_owner.label }} {{ form.team_owner }}
+                {{ form.capacity.label }} {{ form.capacity }}
+                <br>
+                {{ form.submit }}
+	    </form>
+</div>
+{% endblock body %}
