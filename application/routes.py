@@ -43,6 +43,7 @@ def addTeam():
         db.session.commit()
         teamChoices = Team.query.filter_by(team_name = name).first()
         AddPlayer().team.choices.append((teamChoices.id,teamChoices.team_name))
+        return redirect(url_for('teams'))
     return render_template('addTeam.html', form = form)
 
 
@@ -80,6 +81,7 @@ def addStats(playerid):
         stat = Stats(games_played = games, receptions = rec, touchdowns = touchdowns, passing_yards = passY, completions = comp, rushing_yards = rush, offensive_int = offInt, defensive_int = defInt, sacks = sacks, tackles = tackles, safety = safety, player_id = playerid)
         db.session.add(stat)
         db.session.commit()
+        return redirect(url_for('teams'))
     return render_template('addStats.html', form = form)
 
 
