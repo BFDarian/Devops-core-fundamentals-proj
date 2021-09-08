@@ -35,13 +35,3 @@ class AddStats(FlaskForm):
    tackles = IntegerField('Tackles', validators = [DataRequired(message = "Field cannot be empty")])
    safety = IntegerField('Safety', validators = [DataRequired(message = "Field cannot be empty")])
    submit = SubmitField('Add Player Statistics')
-
-
-class SelectTeam(FlaskForm):
-    teamID = SelectField('Team', choices = [])
-    submit = SubmitField('Choose Team')
-
-
-class SelectPlayer(FlaskForm):
-    playerID = SelectField('Player', choices = [])
-    submit = SubmitField('Choose Player')
