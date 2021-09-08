@@ -94,7 +94,7 @@ def updateTeam(teamid):
         team.team_owner = form.team_owner.data
         team.capacity = form.capacity.data
         db.session.commit()
-        redirect(url_for('teams'))
+        return redirect(url_for('teams'))
     elif request.method == 'GET':
         form.team_name.data = team.team_name
         form.stadium_name.data = team.team_stadium
@@ -115,7 +115,7 @@ def updatePlayer(playerid):
         player.DoB = form.DoB.data
         player.team_id = form.team.data
         db.session.commit()
-        redirect(url_for('teams'))
+        return redirect(url_for('teams'))
     elif request.method == 'GET':
         form.player_name.data = player.player_name
         form.position.data = player.position
@@ -142,7 +142,7 @@ def updateStats(playerid):
         stat.tackles = form.tackles.data
         stat.safety = form.safety.data
         db.session.commit()
-        redirect(url_for('teams'))
+        return redirect(url_for('teams'))
     elif request.method == 'GET':
         form.games_played.data = stat.games_played
         form.receptions.data = stat.receptions
