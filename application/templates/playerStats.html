@@ -1,0 +1,18 @@
+{% extends 'home.html' %}
+{% block body %}
+<h2>{{ name }}</h2>
+<a>Games Played: {{ nflPlayerStat.games_played }}</a>  |  
+<a>Receptions: {{ nflPlayerStat.receptions }}</a>  |  
+<a>Touchdowns: {{ nflPlayerStat.touchdowns }}</a>  |  
+<a>Passing Yards: {{ nflPlayerStat.passing_yards }}</a>  |  
+<a>Completions: {{ nflPlayerStat.completions }}</a>  |
+<a>Rushing Yards: {{ nflPlayerStat.rushing_yards }}</a>  |  
+<a>Interceptions(Offense): {{ nflPlayerStat.offensive_int }}</a>  |  
+<a>Interceptions(Defense): {{ nflPlayerStat.defensive_int }}</a>  |  
+<a>Sacks: {{ nflPlayerStat.sacks }}</a>  |  
+<a>Tackles: {{ nflPlayerStat.tackles }}</a>  |  
+<a>Safety: {{ nflPlayerStat.safety }}</a>  |  
+<a href ="{{ url_for('updateStats', playerid = nflPlayerStat.player_id) }}" class ="btn btn-primary " >Update Player Stats</a>         
+<br>
+
+{% endblock body %}
