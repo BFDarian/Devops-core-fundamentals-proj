@@ -19,6 +19,7 @@ class Player(db.Model):
     stats = db.relationship('Stats', backref = 'player')
 
 class Stats(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
     games_played = db.Column(db.Integer, nullable = False)
     receptions = db.Column(db.Integer, nullable = False)
     touchdowns = db.Column(db.Integer, nullable = False)

@@ -38,10 +38,10 @@ def addTeam():
         loc = form.team_location.data
         owner = form.team_owner.data
         capacity = form.capacity.data
-        team = Team(team_name = name, stadium_name = stadium, team_location = loc, team_owner = owner, capacity= capacity)
+        team = Team(team_name = name, team_stadium = stadium, team_location = loc, team_owner = owner, capacity= capacity)
         db.session.add(team)
         db.session.commit()
-        teamChoices = Team.query.filter_by(team_name = name)
+        teamChoices = Team.query.filter_by(team_name = name).first()
         AddPlayer().team.choices.append((teamChoices.id,teamChoices.team_name))
     return render_template('addTeam.html', form = form)
 
@@ -83,11 +83,11 @@ def addStats(playerid):
     return render_template('addStats.html', form = form)
 
 
-@app.route('/updateTeam/<int:teamid>', method = ['GET', 'POST'])
+@app.route('/updateTeam/<int:teamid>', methods = ['GET', 'POST'])
 def updateTeam(teamid):
     form = AddTeam()
     team = Team.query.get(teamid)
-    if form.validate_on_submit:
+    if form.validate_on_submit():
         team.team_name = form.team_name.data
         team.team_stadium = form.stadium_name.data
         team.team_location = form.team_location.data
@@ -104,11 +104,11 @@ def updateTeam(teamid):
     return render_template('updateTeam.html', form = form)  
 
 
-@app.route('/updatePlayer/<int:playerid>', method = ['GET', 'POST'])
+@app.route('/updatePlayer/<int:playerid>', methods = ['GET', 'POST'])
 def updatePlayer(playerid):
     form = AddPlayer()
     player = Player.query.get(playerid)
-    if form.validate_on_submit:
+    if form.validate_on_submit():
         player.player_name = form.player_name.data
         player.position = form.position.data
         player.height = form.height.data
@@ -126,10 +126,10 @@ def updatePlayer(playerid):
 
 
 @app.route('/updateStats/<int:playerid>', methods=['GET','POST'])
-def addStats(playerid):
+def updateStats(playerid):
     form = AddStats()
     stat = Stats.query.get(playerid)
-    if form.validate_on_submit:
+    if form.validate_on_submit():
         stat.games_played = form.games_played.data
         stat.receptions = form.receptions.data
         stat.touchdowns = form.touchdowns.data
