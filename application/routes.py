@@ -179,11 +179,3 @@ def deletePlayer(playerid):
     db.session.delete(player)
     db.session.commit()
     return redirect(url_for('teams'))
-
-
-@app.route('/deleteStats/<int:playerid>')
-def deleteStats(playerid):
-    stats = Stats.query.filter_by(player_id = playerid).first()
-    db.session.delete(stats)
-    db.session.commit()
-    return redirect(url_for('teams'))
