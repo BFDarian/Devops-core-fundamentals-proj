@@ -12,7 +12,7 @@
 <a>Sacks: {{ nflPlayerStat.sacks }}</a> 
 <a>Tackles: {{ nflPlayerStat.tackles }}</a> 
 <a>Safety: {{ nflPlayerStat.safety }}</a> 
-<button onclick ="{{ url_for('updateStats', playerid = nflPlayerStat.player_id) }}" >Update Player Stats</button> || <button onclick ="{{ url_for('deleteStats', playerid = nflPlayerStat.player_id) }}" >Delete Player Stats</button>         
+<a href ="{{ url_for('updateStats', playerid = nflPlayerStat.player_id) }}" class ="btn btn-primary " >Update Player Stats</a>    <a href ="{{ url_for('deleteStats', playerid = nflPlayerStat.player_id) }}" class ="btn btn-primary ">Delete Player Stats</a>         
 <br>
 
 {% endblock body %}
