@@ -111,6 +111,9 @@ def updateTeam(teamid):
 def updatePlayer(playerid):
     form = AddPlayer()
     player = Player.query.get(playerid)
+    teamSelect = Team.query.all()
+    for team in teamSelect:
+        form.team.choices.append((team.id,team.team_name))
     if form.validate_on_submit():
         player.player_name = form.player_name.data
         player.position = form.position.data
@@ -131,33 +134,37 @@ def updatePlayer(playerid):
 @app.route('/updateStats/<int:playerid>', methods=['GET','POST'])
 def updateStats(playerid):
     form = AddStats()
-    stat = Stats.query.get(playerid)
-    if form.validate_on_submit():
-        stat.games_played = form.games_played.data
-        stat.receptions = form.receptions.data
-        stat.touchdowns = form.touchdowns.data
-        stat.passing_yards = form.pass_yards.data
-        stat.completions = form.completions.data
-        stat.rushing_yards = form.rush_yards.data
-        stat.offensive_int = form.off_int.data
-        stat.defensive_int = form.def_int.data
-        stat.sacks = form.sacks.data
-        stat.tackles = form.tackles.data
-        stat.safety = form.safety.data
+    stat = Stats.query.filter_by(player_id=playerid).first()
+    stat1 = Stats.query.get(stat.id)
+    print(stat.id, stat.games_played)
+    if request.method == 'POST':
+        print('validate')
+        stat1.games_played = form.games_played.data
+        stat1.receptions = form.receptions.data
+        stat1.touchdowns = form.touchdowns.data
+        stat1.passing_yards = form.pass_yards.data
+        stat1.completions = form.completions.data
+        stat1.rushing_yards = form.rush_yards.data
+        stat1.offensive_int = form.off_int.data
+        stat1.defensive_int = form.def_int.data
+        stat1.sacks = form.sacks.data
+        stat1.tackles = form.tackles.data
+        stat1.safety = form.safety.data
         db.session.commit()
+        print(stat.id, stat.games_played)
         return redirect(url_for('teams'))
     elif request.method == 'GET':
-        form.games_played.data = stat.games_played
-        form.receptions.data = stat.receptions
-        form.touchdowns.data = stat.touchdowns
-        form.pass_yards.data = stat.passing_yards
-        form.completions.data = stat.completions
-        form.rush_yards.data = stat.rushing_yards
-        form.off_int.data = stat.offensive_int
-        form.def_int.data = stat.defensive_int
-        form.sacks.data = stat.sacks
-        form.tackles.data = stat.tackles
-        form.safety.data = stat.safety
+        form.games_played.data = stat1.games_played
+        form.receptions.data = stat1.receptions
+        form.touchdowns.data = stat1.touchdowns
+        form.pass_yards.data = stat1.passing_yards
+        form.completions.data = stat1.completions
+        form.rush_yards.data = stat1.rushing_yards
+        form.off_int.data = stat1.offensive_int
+        form.def_int.data = stat1.defensive_int
+        form.sacks.data = stat1.sacks
+        form.tackles.data = stat1.tackles
+        form.safety.data = stat1.safety
     return render_template('updateStats.html', form = form)
 
 
@@ -178,7 +185,7 @@ def deletePlayer(playerid):
 
 @app.route('/deleteStats/<int:playerid>')
 def deleteStats(playerid):
-    stats = Stats.query.get(playerid)
+    stats = Stats.query.filter_by(player_id = playerid).first()
     db.session.delete(stats)
     db.session.commit()
     return redirect(url_for('teams'))
