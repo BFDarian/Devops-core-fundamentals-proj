@@ -16,16 +16,16 @@ def teams():
 
 
 @app.route('/teamPlayers/<int:teamid>')
-def teamPlayer(teamid):
+def teamPlayers(teamid):
     nflPlayer = Player.query.filter_by(team_id = teamid)
     return render_template('teamPlayers.html', nflPlayer = nflPlayer)
 
 
 @app.route('/playerStats/<int:playerid>')
 def playerStats(playerid):
-    player = Player.player_name.filter_by(player_id = playerid)
+    player = Player.query.filter_by(id = playerid).first()
     name = player.player_name
-    nflPlayerStat = Stats.query.filter_by(player_id = playerid)
+    nflPlayerStat = Stats.query.filter_by(player_id = playerid).first()
     return render_template('playerStats.html', nflPlayerStat = nflPlayerStat, name = name)
 
 
@@ -41,8 +41,6 @@ def addTeam():
         team = Team(team_name = name, team_stadium = stadium, team_location = loc, team_owner = owner, capacity= capacity)
         db.session.add(team)
         db.session.commit()
-        teamChoices = Team.query.filter_by(team_name = name).first()
-        AddPlayer().team.choices.append((teamChoices.id,teamChoices.team_name))
         return redirect(url_for('teams'))
     return render_template('addTeam.html', form = form)
 
@@ -50,6 +48,9 @@ def addTeam():
 @app.route('/addPlayer', methods=['GET','POST'])
 def addPlayer():
     form = AddPlayer()
+    teamSelect = Team.query.all()
+    for team in teamSelect:
+        form.team.choices.append((team.id,team.team_name))
     if request.method == 'POST':
         name = form.player_name.data
         position = form.position.data

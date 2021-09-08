@@ -1,17 +1,17 @@
 {% extends 'home.html' %}
 {% block body %}
 <h2>{{ name }}</h2>
-<a>Games Played: {{ nflPlayerStat.games_played }}</a> 
-<a>Receptions: {{ nflPlayerStat.games_played }}</a> 
-<a>Touchdowns: {{ nflPlayerStat.games_played }}</a> 
-<a>Passing Yards: {{ nflPlayerStat.games_played }}</a> 
-<a>Completions: {{ nflPlayerStat.games_played }}</a> 
-<a>Rushing Yards: {{ nflPlayerStat.games_played }}</a> 
-<a>Interceptions(Offense): {{ nflPlayerStat.games_played }}</a> 
-<a>Interceptions(Defense): {{ nflPlayerStat.games_played }}</a>  
-<a>Sacks: {{ nflPlayerStat.games_played }}</a> 
-<a>Tackles: {{ nflPlayerStat.games_played }}</a> 
-<a>Safety: {{ nflPlayerStat.games_played }}</a> 
+<a>Games Played: {{ nflPlayerStat.games_played }}</a> <a>  </a>
+<a>Receptions: {{ nflPlayerStat.receptions }}</a> <a>  </a>
+<a>Touchdowns: {{ nflPlayerStat.touchdowns }}</a> <a>  </a>
+<a>Passing Yards: {{ nflPlayerStat.passing_yards }}</a> <a>  </a>
+<a>Completions: {{ nflPlayerStat.completions }}</a> <a>  </a>
+<a>Rushing Yards: {{ nflPlayerStat.rushing_yards }}</a> <a>  </a>
+<a>Interceptions(Offense): {{ nflPlayerStat.offensive_int }}</a> <a>  </a>
+<a>Interceptions(Defense): {{ nflPlayerStat.defensive_int }}</a>  <a>  </a>
+<a>Sacks: {{ nflPlayerStat.sacks }}</a> 
+<a>Tackles: {{ nflPlayerStat.tackles }}</a> 
+<a>Safety: {{ nflPlayerStat.safety }}</a> 
 <button onclick ="{{ url_for('updateStats', playerid = nflPlayerStat.player_id) }}" >Update Player Stats</button> || <button onclick ="{{ url_for('deleteStats', playerid = nflPlayerStat.player_id) }}" >Delete Player Stats</button>         
 <br>
 
