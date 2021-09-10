@@ -7,3 +7,4 @@ WTForms
 pytest
 pytest-cov
 flask_testing
+selenium

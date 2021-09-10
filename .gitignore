@@ -2,4 +2,6 @@
 *.pyc
 /__pycache__/
 /application/__pycache__/
-/application/data.db
+/application/dataTeam.db
+.coverage
+/.pytest_cache/
