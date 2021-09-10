@@ -1,6 +1,11 @@
-Flask==1.1.2
-Flask-SQLAlchemy==2.4.4
-Flask_wtf==0.14.3
-Jinja2==2.11.2
-SQLAlchemy==1.3.18
-WTForms==2.3.3
+Flask
+Flask-SQLAlchemy
+Flask_wtf
+Jinja2
+SQLAlchemy
+WTForms
+pytest
+pytest-cov
+flask_testing
+selenium
+pymysql

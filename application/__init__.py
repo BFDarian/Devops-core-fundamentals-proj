@@ -3,13 +3,14 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField,SelectField
 import os
+from os import getenv
 
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///dataTeam.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = "secret_key"
+app.config['SECRET_KEY'] = getenv("MY_SECRET_KEY")
 
 db = SQLAlchemy(app)
 

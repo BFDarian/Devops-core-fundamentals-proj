@@ -9,7 +9,7 @@ class AddTeam(FlaskForm):
     team_location = StringField('Team location', validators = [DataRequired(message = "Field cannot be empty")])
     team_owner = StringField('Team Owner')
     capacity = IntegerField('Capacity')
-    submit = SubmitField('Add')
+    submit = SubmitField('Submit')
 
 
 class AddPlayer(FlaskForm):
@@ -17,9 +17,9 @@ class AddPlayer(FlaskForm):
     position = SelectField('Player Position', 
         choices = [("QB","QB"), ("RB","RB"), ("OL","OL"), ("TE","TE"), ("WR","WR"), ("DL","DL"), ("LB","LB"), ("DB","DB"), ("K","K"), ("P","P")])
     height = IntegerField('Player Height(cm)')
-    DoB = DateField('Date of Birth')
-    team = SelectField('Team', choices=[])
-    submit = SubmitField('Add')
+    DoB = DateField('Date of Birth', format = '%Y-%m-%d')
+    team = SelectField('Team', choices=[], validators = [DataRequired(message = "Field cannot be empty")])
+    submit = SubmitField('Submit')
 
 
 class AddStats(FlaskForm):
@@ -34,4 +34,4 @@ class AddStats(FlaskForm):
    sacks = IntegerField('Sacks', validators = [DataRequired(message = "Field cannot be empty")])
    tackles = IntegerField('Tackles', validators = [DataRequired(message = "Field cannot be empty")])
    safety = IntegerField('Safety', validators = [DataRequired(message = "Field cannot be empty")])
-   submit = SubmitField('Add')
+   submit = SubmitField('Submit')

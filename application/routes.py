@@ -169,6 +169,9 @@ def updateStats(playerid):
 @app.route('/deleteTeam/<int:teamid>')
 def deleteTeam(teamid):
     team = Team.query.get(teamid)
+    players = Player.query.filter_by(team_id = teamid).all()
+    for player in players:
+        db.session.delete(player)
     db.session.delete(team)
     db.session.commit()
     return redirect(url_for('teams'))
@@ -176,6 +179,8 @@ def deleteTeam(teamid):
 @app.route('/deletePlayer/<int:playerid>')
 def deletePlayer(playerid):
     player = Player.query.get(playerid)
+    stat = Stats.query.filter_by(player_id = playerid).first()
+    db.session.delete(stat)
     db.session.delete(player)
     db.session.commit()
     return redirect(url_for('teams'))
