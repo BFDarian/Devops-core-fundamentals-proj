@@ -1,0 +1,11 @@
+[Unit]
+Description=NFL app
+
+[Service]
+User=jenkins
+Environment=OUTPUT_FILE=/tmp/output.txt
+Environment=ENVIRONMENT='development'
+ExecStart=/bin/sh -c 'cd Devops-core-fundamentals-proj && . ./venv/bin/activate && python3 app.py'
+
+[Install]
+WantedBy=multi-user.target
