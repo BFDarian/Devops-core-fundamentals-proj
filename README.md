@@ -35,4 +35,4 @@ The relationships between these tables are as follows:
 - Teams to Player - One team can have many players but one player may only have one team
 - Player to Stats - One player has one set of stats and one set of stats belongs to one player
 
-![ERD](https://github.com/BFDarian/Devops-core-fundamentals-proj.git/design/)
+![ERD](https://github.com/BFDarian/Devops-core-fundamentals-proj.git/design/NFL_ERD.png)
