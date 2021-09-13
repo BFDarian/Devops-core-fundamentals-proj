@@ -1,0 +1,33 @@
+{% extends 'home.html' %}
+{% block body %}
+<h2>Update Stats</h2>
+<br>
+<div class='form'>
+            <form method='POST' action=''>
+                {{ form.hidden_tag() }}
+                {{ form.games_played.label }} {{ form.games_played }}
+                <br>
+                {{ form.receptions.label }} {{ form.receptions }}
+                <br>
+                {{ form.touchdowns.label }} {{ form.touchdowns }}
+                <br>
+                {{ form.pass_yards.label }} {{ form.pass_yards }}
+                <br>
+                {{ form.completions.label }} {{ form.completions }}  
+                <br>
+                {{ form.rush_yards.label }} {{ form.rush_yards }}  
+                <br>
+                {{ form.off_int.label }} {{ form.off_int }}  
+                <br>
+                {{ form.def_int.label }} {{ form.def_int }}  
+                <br>
+                {{ form.sacks.label }} {{ form.sacks }}  
+                <br>
+                {{ form.tackles.label }} {{ form.tackles }}  
+                <br>
+                {{ form.safety.label }} {{ form.safety }}  
+                <br>
+                {{ form.submit }}
+	    </form>
+</div>
+{% endblock body %}
