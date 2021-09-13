@@ -17,6 +17,7 @@
 
 The brief provided for this project was to design a webpage application which utilised CRUD (create, read, update and delete) functionality, so we could store information in a MySQL database. We would also have to make use of the python framework Flask and other extensions to help design the database, webpages and forms. 
 
+
 For this project we also had other requirements set out inthe brief. These consist of a Trello board, to organise our user stories and create sprints, a standalone relational database containing a minimum of two tables which must be normalised to avoid many-to-many relationships between tables, test cases created and run using pytest and version control.
 
 ### My approach
