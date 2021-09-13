@@ -13,6 +13,7 @@
 
 
 
+
 ## Brief:
 
 The brief provided for this project was to design a webpage application which utilised CRUD (create, read, update and delete) functionality, so we could store information in a MySQL database. We would also have to make use of the python framework Flask and other extensions to help design the database, webpages and forms. 
