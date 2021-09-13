@@ -56,7 +56,8 @@ For version control, git was used and the project repo was on GitHub. Version co
 
 For the development of  the project python was used with a virtual environment(venv) hosted on a aws virtual machine runnig Ubuntu. Flask was used to design the webpages and MySQL was used for the database. Jenkins is used to provide automation to testing and building of the project. It will pull the latest commit from the GitHub repo and run tests on the code and then build up the app to view. 
 
-### pipeline
+![pipeline](https://github.com/BFDarian/Devops-core-fundamentals-proj/blob/dev/design/Risk_assessment.png)
+
 
 
 ## Risk Assessment
