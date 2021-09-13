@@ -36,3 +36,9 @@ The relationships between these tables are as follows:
 - Player to Stats - One player has one set of stats and one set of stats belongs to one player
 
 ![ERD](https://github.com/BFDarian/Devops-core-fundamentals-proj/blob/dev/design/NFL_ERD.png)
+
+
+## Project Tracking
+
+Link to trello: https://trello.com/b/lNu17dLf/devops-project-nfl-app
+
