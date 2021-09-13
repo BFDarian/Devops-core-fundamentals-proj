@@ -50,7 +50,7 @@ Link to trello: https://trello.com/b/lNu17dLf/devops-project-nfl-app
 
 Trello was used to track the progress of the project and break down the project to it's fundamentals.
 
-The board starts with the backlog where users stories and app functionality would be outlined and broken up in to notes. The plannin stage was for notes taht were bneing prepared but were not quite ready for implementaiton duew to either another are of functionality was required first or more research in how to implement the note was required.
+The board starts with the backlog where users stories and app functionality would be outlined and broken up in to notes. The planning stage was for notes that were being prepared but were not quite ready for implementation due to either more functionality was required first or further research in how to implement the note was required.
 
 
 For version control, git was used and the project repo was on GitHub. Version control allows for the project to be modified and commited while also having access to earlier version of the project if an error in the latest commit causes the project to break. This means the project can be reverted to the last working commit if needed and provides a safe place to rometly store a project incase issues on a local machince causes developers to lose their files. 
