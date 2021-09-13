@@ -5,7 +5,7 @@ Description=NFL app
 User=jenkins
 WorkingDirectory=/opt/flask-app
 EnvironmentFile=/opt/flask-app/flask.env
-ExecStart=/bin/sh -c 'cd Devops-core-fundamentals-proj && . ./venv/bin/activate && gunicorn --worker=4 --bind=0.0.0.0:5000 app:app'
+ExecStart=/bin/sh -c 'cd /opt/flask-app/ && . ./venv/bin/activate && gunicorn --worker=4 --bind=0.0.0.0:5000 app:app'
 
 [Install]
 WantedBy=multi-user.target
