@@ -65,6 +65,8 @@ For the development of  the project python was used with a virtual environment(v
 
 ![Risk Assessment](https://github.com/BFDarian/Devops-core-fundamentals-proj/blob/dev/design/Risk_assessment.png)
 
+Most of the risk were identified beforehand except for one. This was where my instance kept crashing in the middle of testing. This caused me to lose some code due to not having pushed to my repo. This meant I had to  try reload the instance just so I could quickly push what I had saved to github in hopes to save some of my progress. Thankfully I managed to and then set up a new instance as I did not wish to risk losing any further progress.
+
 
 ## Testing
 
