@@ -56,9 +56,67 @@ For version control, git was used and the project repo was on GitHub. Version co
 
 For the development of  the project python was used with a virtual environment(venv) hosted on a aws virtual machine runnig Ubuntu. Flask was used to design the webpages and MySQL was used for the database. Jenkins is used to provide automation to testing and building of the project. It will pull the latest commit from the GitHub repo and run tests on the code and then build up the app to view. 
 
-
+### pipeline
 
 
 ## Risk Assessment
 
-![Risk Assessment](https://github.com/BFDarian/Devops-core-fundamentals-proj/blob/dev/design/Trello.png)
+![Risk Assessment](https://github.com/BFDarian/Devops-core-fundamentals-proj/blob/dev/design/Risk_assessment.png)
+
+
+## Testing
+
+For testing the application we used pytest. There are two types of test ran on the app, unit tests and integration tests. Unit tests test the functionality of the functions withing the app. In this project that is the CRUD functionality, so each test is written to test individual segments of CRUD. Integration testing tests the app in a live environment to ensure the app acts as intended by mimicing keyboard andf dmouse inputs.
+
+![coverage test](https://github.com/BFDarian/Devops-core-fundamentals-proj/blob/dev/design/CoverageReport.png)
+
+
+## Front-End App
+
+### home page
+
+
+![Home page](https://github.com/BFDarian/Devops-core-fundamentals-proj/blob/dev/design/home.png)
+
+From the home page the user is given links to direct to any of the other main pages.
+
+![Add Team page](https://github.com/BFDarian/Devops-core-fundamentals-proj/blob/dev/design/newTeam.png)
+
+Next is the add teams page where the user is prompted to input data about the team.
+
+![View Team page](https://github.com/BFDarian/Devops-core-fundamentals-proj/blob/dev/design/viewTeam.png)
+
+Upon submitting a new team the user gets redirected to the view teams page where thy can see all teams that have already been made. From here you can update/delte a team or view the players of that team.
+
+
+![Add Player page](https://github.com/BFDarian/Devops-core-fundamentals-proj/blob/dev/design/newPlay.png)
+
+Here the user can add a player to the database. Afterwards you get redirected to the add stats page for that player.
+
+
+![Add Player Stats page](https://github.com/BFDarian/Devops-core-fundamentals-proj/blob/dev/design/AddPlayerStat.png)
+
+Here the user add the stats for the player they just added to the database.
+
+![View Player page](https://github.com/BFDarian/Devops-core-fundamentals-proj/blob/dev/design/viewPlayer.png)
+
+From the view teams page the user can select the team they want and view all the players in that team who will be displayed on a new page. From here you can also update the player information or delete the player
+
+![View Player Stats page](https://github.com/BFDarian/Devops-core-fundamentals-proj/blob/dev/design/ViewStats.png)
+
+From the view player page you can select any player on that page and view theri stats. From here you can update the player information. You cannot delte as I came the the realisation that you can't add a player without adding stats for the player so i thought it would be best if to make it sothe user cannot delete stats for a player without deleting the player as well.
+
+There are also update pages for Teams, Players and Stats but they are identical to the add pages just with a different title and the information already know abouth te player is automatically filled in.
+
+
+## Known Issues
+
+- There is no prevention to stop the user andding the same team or player multiple times.
+
+## Future Improvements
+
+- I would like to add more tables for players so taht I can seperate player by position so I can therefore tailor the stats shown for the player.
+
+- Add a user login so users can personalise their own app and just have teams and players they want.
+
+- Fix the issue stated above so that teams and players only appear once. 
